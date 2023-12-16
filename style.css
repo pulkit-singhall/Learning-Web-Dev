@@ -1,0 +1,24 @@
+#main_div{
+    background-color: black;
+    border: 5px solid white;
+    height: 50px;
+    padding: 10px;
+}
+
+.a_tag{
+    text-decoration: none;
+    color: white;
+    margin: 20px;
+}
+
+#amazon{
+    color: orange;
+}
+
+#button{
+    background-color: orange;
+    color: white;
+    border: none;
+}
+
+
