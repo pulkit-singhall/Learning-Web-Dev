@@ -1,25 +1,24 @@
-#main_div{
-    background-color: black;
-    border: 5px solid white;
-    height: 50px;
-    padding: 10px;
+#main_body{
+    color: black;
+    background-color: white;
 }
 
-.a_tag{
-    text-decoration: none;
-    color: white;
-    margin: 20px;
+.box1, .box2, .box3, .box4{
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+    padding: 50px;
+    display: flex;
 }
 
-#amazon{
-    color: orange;
+@media (max-width: 200px) or (max-height: 300px){
+    .box1, .box2, .box3,.box4 {
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            padding: 50px;
+            display: inline-block;
+        }
 }
-
-#button{
-    background-color: orange;
-    color: white;
-    border: none;
-    margin-left: 30px;
-}
-
-
