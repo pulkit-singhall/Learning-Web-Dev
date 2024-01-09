@@ -1,32 +1,19 @@
-// const change_theme_btn = document.getElementById('change_theme');
+const book_btn = document.getElementById('book_btn');
 
-// const body = document.getElementById('main_body');
+// simple listener
+book_btn.addEventListener(
+    'click', function (e) {
+        console.log('booked');
+});
 
-// let whiteTheme = true;
+// flex direction change
+const grids = document.getElementById('grids');
+let grid_children = grids.children;
 
-// console.log(change_theme_btn.className);
-
-// let age = prompt("Tell your age?");
-
-// console.log(age);
-
-// change_theme_btn.addEventListener(
-//     'click', function (event) {
-//         console.log(event.shiftKey);
-//         if (whiteTheme) {
-//             body.style.backgroundColor = 'black';
-//             body.style.color = 'white';
-//             change_theme_btn.style.backgroundColor = 'white';
-//             change_theme_btn.style.color = 'black';
-//         }
-//         else {
-//             body.style.backgroundColor = 'white';
-//             body.style.color = 'black';
-//             change_theme_btn.style.backgroundColor = 'black';
-//             change_theme_btn.style.color = 'white';
-//         }
-//         whiteTheme = !whiteTheme;
-//     }
-// );
-
+for (let i = 0; i < grid_children.length; i++){
+    if (i % 2 != 0) {
+        let child = grid_children[i];
+        child.style.flexDirection = 'row-reverse';
+    }
+}
 
