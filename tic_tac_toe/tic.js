@@ -61,14 +61,10 @@ let playerTurn = 0;
 // winner declared / not
 let gameResult = false;
 
-// number of turns
-let turns = 0;
-
 // global array to store colored blocks
 let blocks_done = {
     red: [],
     green: [],
-    all: [],
 }
 
 let turn_text = document.getElementById('turn_text');
@@ -77,52 +73,38 @@ let grid = document.getElementById('grid');
 let blocks = grid.children;
 
 // logic of game
-while (!gameResult && turns <= 9) {
-    let clicked = false;
-    for (let i = 0; i < 9; i++) {
-        let block = blocks[i];
-        block.addEventListener('click', function (e) { 
-            clicked = true;
-            if (blocks_done.all.includes(i) === false) {
-                if (playerTurn === 0) {
-                    // player 1 turn -> red
-                    block.style.backgroundColor = colors.red;
-                    turn_text.innerHTML = 'Player 2 Turn';
-                    playerTurn = 1 - playerTurn;
-                    turn_text.style.color = colors.green;
-                    blocks_done.red.push(i);
-                }
-                else {
-                    // player 2 turn -> green
-                    block.style.backgroundColor = colors.green;
-                    turn_text.innerHTML = 'Player 1 Turn';
-                    playerTurn = 1 - playerTurn;
-                    turn_text.style.color = colors.red;
-                    blocks_done.green.push(i);
-                }
-                blocks_done.all.push(i);
-                if (findWinner(i, 1 - playerTurn)) {
-                    gameResult = true; 
-                }
-            }
-        });
-        if (clicked) {
-            break;
+for (let i = 0; i < 9; i++) {
+    let block = blocks[i];
+    block.addEventListener('click', function (e) { 
+        let resultOnCurrentTurn = false;
+        if (playerTurn === 0) {
+            // player 1 turn -> red
+            block.style.backgroundColor = colors.red;
+            turn_text.innerHTML = 'Player 2 Turn';
+            playerTurn = 1 - playerTurn;
+            turn_text.style.color = colors.green;
+            blocks_done.red.push(i);
         }
-    }
-    turns++;
-}
-
-
-if (gameResult) {
-    if (playerTurn == 0) {
-        winner_text.innerHTML = `Player 2 is the winner!`;
-    }
-    else {
-        winner_text.innerHTML = `Player 1 is the winner!`;
-    }
-    winner_text.style.color = 'gold';
-}
-else {
-    winner_text.innerHTML = 'Game Tied';
+        else {
+            // player 2 turn -> green
+            block.style.backgroundColor = colors.green;
+            turn_text.innerHTML = 'Player 1 Turn';
+            playerTurn = 1 - playerTurn;
+            turn_text.style.color = colors.red;
+            blocks_done.green.push(i);
+        }
+        if (findWinner(i, 1 - playerTurn)) {
+            resultOnCurrentTurn = true; 
+        }
+        if (!gameResult && resultOnCurrentTurn) {
+            gameResult = true;
+            if (playerTurn == 0) {
+                winner_text.innerHTML = `Player 2 is the winner!`;
+            }
+            else {
+                winner_text.innerHTML = `Player 1 is the winner!`;
+            }
+            winner_text.style.color = 'gold';
+        }
+    }, { once: true });
 }
