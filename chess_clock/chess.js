@@ -7,6 +7,14 @@ const pl2btn = document.getElementById("pl2btn");
 let turn = 1;
 let start = true;
 
+pl1btn.addEventListener('mouseover', () => {
+	pl1btn.style.cursor = 'pointer';
+});
+
+pl2btn.addEventListener('mouseover', () => {
+	pl2btn.style.cursor = 'pointer';
+});
+
 start_btn.addEventListener("click", () => {
 	let dur = document.getElementById("dur").value;
 	let inc = document.getElementById("inc").value;
@@ -23,8 +31,9 @@ start_btn.addEventListener("click", () => {
 	let inc1 = inc * 60;
 
 	if (start) {
-		pl1btn.style.backgroundColor = '#A1BE95';
-		let st = setInterval(() => { 
+		pl1btn.style.backgroundColor = '#330000';
+		pl1btn.style.boxShadow = 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px';
+		let st = setInterval(() => {
 			if (turn === 1) {
 				time1 = time1 - 1;
 				if (time1 === 0) {
@@ -43,8 +52,10 @@ start_btn.addEventListener("click", () => {
 	start = false;
 
 	pl1btn.addEventListener("click", () => {
-		pl2btn.style.backgroundColor = '#A1BE95';
-		pl1btn.style.backgroundColor = '#A7BEAE';
+		pl2btn.style.backgroundColor = '#330000';
+		pl1btn.style.backgroundColor = '#73605B';
+		pl2btn.style.boxShadow = 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px';
+		pl1btn.style.boxShadow = 'rgba(0,0,0,0) 0px 0px 0px';
 		turn = 2;
 		let x = setInterval(() => {
 			if (turn === 2) {
@@ -68,12 +79,14 @@ start_btn.addEventListener("click", () => {
 	});
 
 	pl2btn.addEventListener("click", () => {
-		pl1btn.style.backgroundColor = '#A1BE95';
-		pl2btn.style.backgroundColor = '#A7BEAE';
+		pl1btn.style.backgroundColor = '#330000';
+		pl2btn.style.backgroundColor = '#73605B';
+		pl2btn.style.boxShadow = 'rgba(0,0,0,0) 0px 0px 0px';
+		pl1btn.style.boxShadow = 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px';
 		turn = 1;
 		let x = setInterval(() => {
 			if (turn === 1) {
-				time1 = time1-1;
+				time1 = time1 - 1;
 				if (time1 === 0) {
 					clearInterval(x);
 					alert('Player 1 time up');
@@ -85,7 +98,7 @@ start_btn.addEventListener("click", () => {
 			else {
 				clearInterval(x);
 			}
-		},1000);
+		}, 1000);
 		time2 += inc1;
 		let minutes = Math.floor(time2 / 60);
 		let seconds = time2 % 60;

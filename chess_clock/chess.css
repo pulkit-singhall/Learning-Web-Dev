@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 45%;
-    height: 60%;
+    height: 65%;
     justify-content: space-evenly;
     align-items: center;
     /* opposite to flex direction */
@@ -31,9 +31,8 @@ body {
     display: flex;
     flex-direction: row;
     width: 80%;
-    height: 30%;
+    height: 40%;
     justify-content: space-evenly;
-
 }
 
 .playtime {
@@ -52,26 +51,34 @@ button {
 }
 
 .btn {
-    background-color: #A7BEAE;
-    height: 200px;
-    width: 120px;
+    background-color: #73605B;
+    height: 85px;
+    width: 145px;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 #start_btn {
-    background-color: #B85042;
+    background-color: #962E2A;
     border-radius: 10px;
-    height: 80px;
-    width: 210px;
+    height: 70px;
+    width: 180px;
+    font-weight: bold;
+}
 
+#start_btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    cursor: pointer;
 }
 
 input {
     border: none;
-
+    background-color: transparent;
+    font-size: 18px;
+    color: black;
 }
 
 .pltime {
-    font-size: 18px;
-
+    font-size: 22px;
+    font-weight: bold;
 }
